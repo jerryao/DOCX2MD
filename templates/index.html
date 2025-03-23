@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOCX 批量转换 Markdown</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <!-- 加载指示器 -->
+    <div id="loading" class="loading">
+        <div class="loading-spinner"></div>
+        <h4>正在处理文件，请稍候...</h4>
+        <p id="loading-status">准备开始转换...</p>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="mb-0">DOCX 批量转换 Markdown</h2>
+                    </div>
+                    <div class="card-body">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                {% for category, message in messages %}
+                                    <div class="alert alert-{{ 'danger' if category == 'error' else category }}">
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+
+                        <div id="alerts-container"></div>
+
+                        <div class="alert alert-info">
+                            <h5>使用说明：</h5>
+                            <ul>
+                                <li>点击"选择文件"按钮，可以选择多个 DOCX 文件（按住 Ctrl 键选择多个文件）</li>
+                                <li>选择导出方式：压缩包下载或保存到指定目录</li>
+                                <li>点击"上传并转换"按钮，系统会将选择的 DOCX 文件批量转换为 Markdown 格式</li>
+                                <li>转换后的 Markdown 文件将保持与原 DOCX 文件相同的文件名</li>
+                                <li>单次上传文件总大小限制为 50MB</li>
+                            </ul>
+                        </div>
+
+                        <form id="upload-form" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <div class="mb-3">
+                                <label for="files" class="form-label">选择 DOCX 文件</label>
+                                <input type="file" class="form-control" id="files" name="files[]" multiple accept=".docx">
+                                <div class="form-text">只支持 .docx 格式的文件</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">导出方式</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="export_type" id="export_zip" value="zip" checked>
+                                    <label class="form-check-label" for="export_zip">
+                                        下载为 ZIP 压缩包
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="export_type" id="export_directory" value="directory">
+                                    <label class="form-check-label" for="export_directory">
+                                        保存到指定目录
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="mb-3" id="directory-input-container" style="display: none;">
+                                <label for="custom_directory" class="form-label">导出目录路径</label>
+                                <input type="text" class="form-control" id="custom_directory" name="custom_directory" placeholder="例如: C:\Exports\Markdown">
+                                <div class="form-text">如果目录不存在，系统将尝试创建该目录</div>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary" id="upload-btn">
+                                    <i class="bi bi-upload me-2"></i>上传并转换
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- 文件列表预览 -->
+                        <div class="mt-4" id="file-preview" style="display: none;">
+                            <h5>已选择的文件：</h5>
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>文件名</th>
+                                            <th>大小</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="file-list">
+                                        <!-- JS 动态填充 -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- 转换结果 -->
+                        <div class="mt-4" id="conversion-results" style="display: none;">
+                            <div class="alert alert-success">
+                                <h5><i class="bi bi-check-circle-fill me-2"></i><span id="success-message"></span></h5>
+                                <div id="download-container">
+                                    <p>您可以 <a href="#" id="download-link" class="btn btn-sm btn-primary"><i class="bi bi-download me-1"></i>下载 Markdown 文件</a></p>
+                                </div>
+                                <div id="directory-result-container" style="display: none;">
+                                    <p>已将转换后的文件保存到: <span id="directory-path" class="fw-bold"></span></p>
+                                </div>
+                            </div>
+                            
+                            <!-- 错误文件列表 -->
+                            <div id="error-files-container" style="display: none;">
+                                <h5 class="text-danger">转换失败的文件：</h5>
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>文件名</th>
+                                                <th>错误信息</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="error-file-list">
+                                            <!-- JS 动态填充 -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <div class="card-header bg-secondary text-white">
+                        <h4 class="mb-0">转换效果说明</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>此工具使用 MarkItDown 库将 DOCX 文件转换为 Markdown 格式，支持以下文档元素：</p>
+                        <ul>
+                            <li>标题层级</li>
+                            <li>正文段落</li>
+                            <li>表格</li>
+                            <li>列表（有序和无序）</li>
+                            <li>基本文本格式（粗体、斜体等）</li>
+                            <li>图片（转换为 Markdown 链接）</li>
+                        </ul>
+                        <p>转换后的 Markdown 文件与原始 DOCX 文件保持相同的文件名，可以在任何支持 Markdown 的编辑器中使用。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-5">
+        <div class="container text-center">
+            <p class="text-muted">© {{ now.year }} DOCX 批量转换 Markdown | 基于 <a href="https://github.com/microsoft/markitdown" target="_blank">MarkItDown</a> 库</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const uploadForm = document.getElementById('upload-form');
+            const fileInput = document.getElementById('files');
+            const filePreview = document.getElementById('file-preview');
+            const fileList = document.getElementById('file-list');
+            const loading = document.getElementById('loading');
+            const loadingStatus = document.getElementById('loading-status');
+            const conversionResults = document.getElementById('conversion-results');
+            const successMessage = document.getElementById('success-message');
+            const downloadLink = document.getElementById('download-link');
+            const downloadContainer = document.getElementById('download-container');
+            const directoryResultContainer = document.getElementById('directory-result-container');
+            const directoryPath = document.getElementById('directory-path');
+            const errorFilesContainer = document.getElementById('error-files-container');
+            const errorFileList = document.getElementById('error-file-list');
+            const alertsContainer = document.getElementById('alerts-container');
+            const exportZip = document.getElementById('export_zip');
+            const exportDirectory = document.getElementById('export_directory');
+            const directoryInputContainer = document.getElementById('directory-input-container');
+            const customDirectoryInput = document.getElementById('custom_directory');
+
+            // 显示/隐藏目录输入框
+            exportZip.addEventListener('change', function() {
+                directoryInputContainer.style.display = 'none';
+            });
+
+            exportDirectory.addEventListener('change', function() {
+                directoryInputContainer.style.display = 'block';
+            });
+
+            // 显示选择的文件
+            fileInput.addEventListener('change', function() {
+                if (this.files.length > 0) {
+                    filePreview.style.display = 'block';
+                    fileList.innerHTML = '';
+                    
+                    for (let i = 0; i < this.files.length; i++) {
+                        const file = this.files[i];
+                        const row = document.createElement('tr');
+                        
+                        // 检查是否是 .docx 文件
+                        const isValidFile = file.name.toLowerCase().endsWith('.docx');
+                        
+                        row.innerHTML = `
+                            <td>${file.name} ${!isValidFile ? '<span class="badge bg-danger">不支持的格式</span>' : ''}</td>
+                            <td>${formatFileSize(file.size)}</td>
+                        `;
+                        
+                        if (!isValidFile) {
+                            row.classList.add('table-danger');
+                        }
+                        
+                        fileList.appendChild(row);
+                    }
+                } else {
+                    filePreview.style.display = 'none';
+                }
+            });
+
+            // 处理表单提交
+            uploadForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // 检查是否选择了文件
+                if (fileInput.files.length === 0) {
+                    showAlert('请选择至少一个 DOCX 文件', 'danger');
+                    return;
+                }
+                
+                // 检查是否有有效的 DOCX 文件
+                let hasValidFiles = false;
+                for (let i = 0; i < fileInput.files.length; i++) {
+                    if (fileInput.files[i].name.toLowerCase().endsWith('.docx')) {
+                        hasValidFiles = true;
+                        break;
+                    }
+                }
+                
+                if (!hasValidFiles) {
+                    showAlert('没有有效的 DOCX 文件', 'danger');
+                    return;
+                }
+                
+                // 如果选择了保存到目录，检查目录是否已提供
+                if (exportDirectory.checked && !customDirectoryInput.value.trim()) {
+                    showAlert('请输入导出目录路径', 'danger');
+                    customDirectoryInput.focus();
+                    return;
+                }
+                
+                // 显示加载指示器
+                loading.style.display = 'block';
+                loadingStatus.textContent = '正在上传文件...';
+                
+                // 创建 FormData 对象并添加 CSRF 令牌
+                const formData = new FormData(uploadForm);
+                
+                // 发送 AJAX 请求
+                fetch('/api/convert', {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(data => {
+                            throw new Error(data.error || '上传失败');
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // 隐藏加载指示器
+                    loading.style.display = 'none';
+                    
+                    // 显示成功消息
+                    conversionResults.style.display = 'block';
+                    successMessage.textContent = data.message;
+                    
+                    // 根据导出类型显示不同的结果
+                    if (data.export_type === 'zip') {
+                        downloadContainer.style.display = 'block';
+                        directoryResultContainer.style.display = 'none';
+                        downloadLink.href = data.download_url;
+                        
+                        // 自动开始下载
+                        setTimeout(() => {
+                            window.location.href = data.download_url;
+                        }, 1000);
+                    } else if (data.export_type === 'directory') {
+                        downloadContainer.style.display = 'none';
+                        directoryResultContainer.style.display = 'block';
+                        directoryPath.textContent = data.directory_path;
+                    }
+                    
+                    // 处理失败的文件
+                    if (data.error_count > 0 && data.failed_files && data.failed_files.length > 0) {
+                        errorFilesContainer.style.display = 'block';
+                        errorFileList.innerHTML = '';
+                        
+                        data.failed_files.forEach(file => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${file.file}</td>
+                                <td>${file.error}</td>
+                            `;
+                            errorFileList.appendChild(row);
+                        });
+                    } else {
+                        errorFilesContainer.style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    // 隐藏加载指示器
+                    loading.style.display = 'none';
+                    
+                    // 显示错误消息
+                    showAlert(`转换失败: ${error.message}`, 'danger');
+                });
+            });
+            
+            // 格式化文件大小
+            function formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            }
+            
+            // 显示警告
+            function showAlert(message, type = 'info') {
+                const alert = document.createElement('div');
+                alert.className = `alert alert-${type} alert-dismissible fade show`;
+                alert.innerHTML = `
+                    ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                `;
+                
+                alertsContainer.appendChild(alert);
+                
+                // 自动关闭
+                setTimeout(() => {
+                    alert.classList.remove('show');
+                    setTimeout(() => alert.remove(), 300);
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html> 

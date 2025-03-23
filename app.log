@@ -1,0 +1,321 @@
+2025-03-23 20:27:47,293 - __main__ - INFO - 应用程序启动
+2025-03-23 20:27:47,316 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.99.127:5000
+2025-03-23 20:27:47,316 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-23 20:27:47,333 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-23 20:27:49,703 - __main__ - INFO - 应用程序启动
+2025-03-23 20:27:49,710 - werkzeug - WARNING -  * Debugger is active!
+2025-03-23 20:27:49,715 - werkzeug - INFO -  * Debugger PIN: 282-163-871
+2025-03-23 20:27:53,571 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:27:53] "GET / HTTP/1.1" 200 -
+2025-03-23 20:27:53,623 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:27:53] "GET /static/style.css HTTP/1.1" 200 -
+2025-03-23 20:27:58,970 - __main__ - ERROR - 应用程序错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "C:\Users\jerry\anaconda3\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jerry\anaconda3\Lib\site-packages\flask\app.py", line 854, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Users\jerry\anaconda3\Lib\site-packages\flask\app.py", line 463, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jerry\anaconda3\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jerry\anaconda3\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-03-23 20:27:58,975 - werkzeug - INFO -  * Detected change in 'C:\\Users\\jerry\\anaconda3\\Lib\\site-packages\\werkzeug\\routing\\map.py', reloading
+2025-03-23 20:27:58,975 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:27:58] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-03-23 20:27:59,960 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-23 20:28:02,386 - __main__ - INFO - 应用程序启动
+2025-03-23 20:28:02,392 - werkzeug - WARNING -  * Debugger is active!
+2025-03-23 20:28:02,398 - werkzeug - INFO -  * Debugger PIN: 282-163-871
+2025-03-23 20:28:18,599 - __main__ - INFO - API 开始转换 9 个文件
+2025-03-23 20:28:19,316 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:28:20,201 - __main__ - ERROR - API 转换文件失败: docx - File conversion failed after 1 attempts:
+ - DocxConverter threw AttributeError with message: 'NoneType' object has no attribute 'children'
+
+2025-03-23 20:28:20,994 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:28:21,343 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:28:24,013 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:28:24,409 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:28:25,045 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:28:25,439 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:28:26,354 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:28:26,355 - werkzeug - INFO -  * Detected change in 'C:\\Dev\\markitdown\\batch_converter\\downloads\\markdown_files_20250323_202826.zip', reloading
+2025-03-23 20:28:26,373 - werkzeug - INFO -  * Detected change in 'C:\\Users\\jerry\\anaconda3\\Lib\\zipfile\\__init__.py', reloading
+2025-03-23 20:28:26,378 - __main__ - INFO - API 已创建 ZIP 文件: markdown_files_20250323_202826.zip
+2025-03-23 20:28:26,378 - werkzeug - INFO -  * Detected change in 'C:\\Dev\\markitdown\\batch_converter\\downloads\\markdown_files_20250323_202826.zip', reloading
+2025-03-23 20:28:26,379 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:28:26] "POST /api/convert HTTP/1.1" 200 -
+2025-03-23 20:28:27,542 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-23 20:28:29,942 - __main__ - INFO - 应用程序启动
+2025-03-23 20:28:29,948 - werkzeug - WARNING -  * Debugger is active!
+2025-03-23 20:28:29,954 - werkzeug - INFO -  * Debugger PIN: 282-163-871
+2025-03-23 20:28:29,973 - __main__ - INFO - 下载文件: markdown_files_20250323_202826.zip
+2025-03-23 20:28:29,974 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:28:29] "GET /download/markdown_files_20250323_202826.zip HTTP/1.1" 200 -
+2025-03-23 20:29:09,146 - __main__ - INFO - 下载文件: markdown_files_20250323_202826.zip
+2025-03-23 20:29:09,147 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:29:09] "GET /download/markdown_files_20250323_202826.zip HTTP/1.1" 200 -
+2025-03-23 20:29:13,292 - __main__ - INFO - 下载文件: markdown_files_20250323_202826.zip
+2025-03-23 20:29:13,294 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:29:13] "GET /download/markdown_files_20250323_202826.zip HTTP/1.1" 200 -
+2025-03-23 20:35:42,927 - __main__ - INFO - 应用程序启动
+2025-03-23 20:35:42,942 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.99.127:5000
+2025-03-23 20:35:42,942 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-23 20:35:42,951 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-23 20:35:45,314 - __main__ - INFO - 应用程序启动
+2025-03-23 20:35:45,320 - werkzeug - WARNING -  * Debugger is active!
+2025-03-23 20:35:45,326 - werkzeug - INFO -  * Debugger PIN: 282-163-871
+2025-03-23 20:35:47,939 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:35:47] "GET / HTTP/1.1" 200 -
+2025-03-23 20:35:47,983 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:35:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-23 20:35:49,558 - __main__ - ERROR - 应用程序错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "C:\Users\jerry\anaconda3\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jerry\anaconda3\Lib\site-packages\flask\app.py", line 854, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Users\jerry\anaconda3\Lib\site-packages\flask\app.py", line 463, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jerry\anaconda3\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jerry\anaconda3\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-03-23 20:35:49,562 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:35:49] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-03-23 20:35:51,443 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:35:51] "GET / HTTP/1.1" 200 -
+2025-03-23 20:35:51,476 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:35:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-23 20:35:51,828 - __main__ - ERROR - 应用程序错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "C:\Users\jerry\anaconda3\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jerry\anaconda3\Lib\site-packages\flask\app.py", line 854, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Users\jerry\anaconda3\Lib\site-packages\flask\app.py", line 463, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jerry\anaconda3\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jerry\anaconda3\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-03-23 20:35:51,830 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:35:51] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-03-23 20:36:06,659 - __main__ - INFO - API 开始转换 9 个文件，导出类型: zip
+2025-03-23 20:36:07,332 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:36:08,322 - __main__ - ERROR - API 转换文件失败: docx - File conversion failed after 1 attempts:
+ - DocxConverter threw AttributeError with message: 'NoneType' object has no attribute 'children'
+
+2025-03-23 20:36:09,086 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:36:09,429 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:36:12,045 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:36:12,469 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:36:13,078 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:36:13,482 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:36:14,429 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:36:14,431 - werkzeug - INFO -  * Detected change in 'C:\\Dev\\markitdown\\batch_converter\\downloads\\markdown_files_20250323_203614.zip', reloading
+2025-03-23 20:36:14,443 - __main__ - INFO - API 已创建 ZIP 文件: markdown_files_20250323_203614.zip
+2025-03-23 20:36:14,444 - werkzeug - INFO -  * Detected change in 'C:\\Dev\\markitdown\\batch_converter\\downloads\\markdown_files_20250323_203614.zip', reloading
+2025-03-23 20:36:14,445 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:36:14] "POST /api/convert HTTP/1.1" 200 -
+2025-03-23 20:36:15,603 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-23 20:36:18,018 - __main__ - INFO - 应用程序启动
+2025-03-23 20:36:18,024 - werkzeug - WARNING -  * Debugger is active!
+2025-03-23 20:36:18,031 - werkzeug - INFO -  * Debugger PIN: 282-163-871
+2025-03-23 20:36:18,048 - __main__ - INFO - 下载文件: markdown_files_20250323_203614.zip
+2025-03-23 20:36:18,049 - __main__ - INFO - 下载文件: markdown_files_20250323_203614.zip
+2025-03-23 20:36:18,050 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:36:18] "GET /download/markdown_files_20250323_203614.zip HTTP/1.1" 200 -
+2025-03-23 20:36:18,050 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:36:18] "GET /download/markdown_files_20250323_203614.zip HTTP/1.1" 200 -
+2025-03-23 20:36:33,034 - __main__ - INFO - 下载文件: markdown_files_20250323_203614.zip
+2025-03-23 20:36:33,035 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:36:33] "GET /download/markdown_files_20250323_203614.zip HTTP/1.1" 200 -
+2025-03-23 20:36:38,328 - __main__ - INFO - 下载文件: markdown_files_20250323_203614.zip
+2025-03-23 20:36:38,330 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:36:38] "GET /download/markdown_files_20250323_203614.zip HTTP/1.1" 200 -
+2025-03-23 20:38:23,158 - werkzeug - INFO -  * Detected change in 'C:\\Dev\\markitdown\\batch_converter\\app.py', reloading
+2025-03-23 20:38:23,159 - werkzeug - INFO -  * Detected change in 'C:\\Dev\\markitdown\\batch_converter\\app.py', reloading
+2025-03-23 20:38:23,166 - werkzeug - INFO -  * Detected change in 'C:\\Dev\\markitdown\\batch_converter\\app.py', reloading
+2025-03-23 20:38:23,501 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-23 20:38:26,054 - __main__ - INFO - 应用程序启动
+2025-03-23 20:38:26,060 - werkzeug - WARNING -  * Debugger is active!
+2025-03-23 20:38:26,067 - werkzeug - INFO -  * Debugger PIN: 282-163-871
+2025-03-23 20:40:20,388 - werkzeug - INFO -  * Detected change in 'C:\\Dev\\markitdown\\batch_converter\\static\\create_favicon.py', reloading
+2025-03-23 20:40:20,391 - werkzeug - INFO -  * Detected change in 'C:\\Dev\\markitdown\\batch_converter\\static\\create_favicon.py', reloading
+2025-03-23 20:40:20,391 - werkzeug - INFO -  * Detected change in 'C:\\Dev\\markitdown\\batch_converter\\static\\create_favicon.py', reloading
+2025-03-23 20:40:21,518 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-23 20:40:24,012 - __main__ - INFO - 应用程序启动
+2025-03-23 20:40:24,018 - werkzeug - WARNING -  * Debugger is active!
+2025-03-23 20:40:24,024 - werkzeug - INFO -  * Debugger PIN: 282-163-871
+2025-03-23 20:40:24,123 - werkzeug - INFO -  * Detected change in 'C:\\Dev\\markitdown\\batch_converter\\static\\create_favicon.py', reloading
+2025-03-23 20:40:24,124 - werkzeug - INFO -  * Detected change in 'C:\\Dev\\markitdown\\batch_converter\\static\\create_favicon.py', reloading
+2025-03-23 20:40:25,225 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-23 20:40:27,636 - __main__ - INFO - 应用程序启动
+2025-03-23 20:40:27,642 - werkzeug - WARNING -  * Debugger is active!
+2025-03-23 20:40:27,648 - werkzeug - INFO -  * Debugger PIN: 282-163-871
+2025-03-23 20:40:58,178 - werkzeug - INFO -  * Detected change in 'C:\\Dev\\markitdown\\batch_converter\\static\\create_favicon.py', reloading
+2025-03-23 20:40:58,178 - werkzeug - INFO -  * Detected change in 'C:\\Dev\\markitdown\\batch_converter\\static\\create_favicon.py', reloading
+2025-03-23 20:40:58,179 - werkzeug - INFO -  * Detected change in 'C:\\Dev\\markitdown\\batch_converter\\static\\create_favicon.py', reloading
+2025-03-23 20:40:58,925 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-23 20:41:01,370 - __main__ - INFO - 应用程序启动
+2025-03-23 20:41:01,377 - werkzeug - WARNING -  * Debugger is active!
+2025-03-23 20:41:01,383 - werkzeug - INFO -  * Debugger PIN: 282-163-871
+2025-03-23 20:41:48,370 - __main__ - INFO - 应用程序启动
+2025-03-23 20:41:48,384 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.99.127:5000
+2025-03-23 20:41:48,384 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-23 20:41:48,393 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-23 20:41:50,945 - __main__ - INFO - 应用程序启动
+2025-03-23 20:41:50,952 - werkzeug - WARNING -  * Debugger is active!
+2025-03-23 20:41:50,958 - werkzeug - INFO -  * Debugger PIN: 282-163-871
+2025-03-23 20:41:54,618 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:41:54] "GET / HTTP/1.1" 200 -
+2025-03-23 20:41:54,665 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:41:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-23 20:41:56,348 - __main__ - WARNING - 未能加载favicon: [WinError 2] 系统找不到指定的文件。: 'C:\\Dev\\markitdown\\batch_converter\\static\\favicon.ico'
+2025-03-23 20:41:56,349 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:41:56] "GET /favicon.ico HTTP/1.1" 200 -
+2025-03-23 20:42:30,350 - __main__ - INFO - API 开始转换 9 个文件，导出类型: directory
+2025-03-23 20:42:31,071 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:42:31,974 - __main__ - ERROR - API 转换文件失败: docx - File conversion failed after 1 attempts:
+ - DocxConverter threw AttributeError with message: 'NoneType' object has no attribute 'children'
+
+2025-03-23 20:42:32,800 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:42:33,177 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:42:35,913 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:42:36,296 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:42:36,987 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:42:37,414 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:42:38,359 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:42:38,362 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:42:38] "POST /api/convert HTTP/1.1" 200 -
+2025-03-23 20:43:15,505 - __main__ - WARNING - 未能加载favicon: [WinError 2] 系统找不到指定的文件。: 'C:\\Dev\\markitdown\\batch_converter\\static\\favicon.ico'
+2025-03-23 20:43:15,506 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:43:15] "GET /favicon.ico HTTP/1.1" 200 -
+2025-03-23 20:44:42,405 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:44:42] "GET / HTTP/1.1" 200 -
+2025-03-23 20:44:42,448 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:44:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-23 20:44:42,809 - __main__ - WARNING - 未能加载favicon: [WinError 2] 系统找不到指定的文件。: 'C:\\Dev\\markitdown\\batch_converter\\static\\favicon.ico'
+2025-03-23 20:44:42,810 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:44:42] "GET /favicon.ico HTTP/1.1" 200 -
+2025-03-23 20:45:11,598 - __main__ - INFO - API 开始转换 9 个文件，导出类型: directory
+2025-03-23 20:45:12,152 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:45:13,079 - __main__ - ERROR - API 转换文件失败: docx - File conversion failed after 1 attempts:
+ - DocxConverter threw AttributeError with message: 'NoneType' object has no attribute 'children'
+
+2025-03-23 20:45:13,884 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:45:14,224 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:45:16,691 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:45:17,257 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:45:17,842 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:45:18,295 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:45:19,123 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:45:19,126 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:45:19] "POST /api/convert HTTP/1.1" 200 -
+2025-03-23 20:47:37,792 - __main__ - INFO - 应用程序启动
+2025-03-23 20:47:37,809 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.99.127:5000
+2025-03-23 20:47:37,809 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-23 20:47:37,819 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-23 20:47:40,177 - __main__ - INFO - 应用程序启动
+2025-03-23 20:47:40,183 - werkzeug - WARNING -  * Debugger is active!
+2025-03-23 20:47:40,192 - werkzeug - INFO -  * Debugger PIN: 282-163-871
+2025-03-23 20:47:54,105 - __main__ - INFO - 应用程序启动
+2025-03-23 20:47:54,120 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.99.127:5000
+2025-03-23 20:47:54,121 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-23 20:47:54,130 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-23 20:47:56,445 - __main__ - INFO - 应用程序启动
+2025-03-23 20:47:56,451 - werkzeug - WARNING -  * Debugger is active!
+2025-03-23 20:47:56,457 - werkzeug - INFO -  * Debugger PIN: 282-163-871
+2025-03-23 20:48:49,573 - werkzeug - INFO -  * Detected change in 'C:\\Users\\jerry\\anaconda3\\Lib\\re\\__init__.py', reloading
+2025-03-23 20:48:49,814 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-23 20:48:52,296 - __main__ - INFO - 应用程序启动
+2025-03-23 20:48:52,301 - werkzeug - WARNING -  * Debugger is active!
+2025-03-23 20:48:52,308 - werkzeug - INFO -  * Debugger PIN: 282-163-871
+2025-03-23 20:49:07,258 - werkzeug - INFO -  * Detected change in 'C:\\Users\\jerry\\anaconda3\\Lib\\subprocess.py', reloading
+2025-03-23 20:49:07,539 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-23 20:49:10,030 - __main__ - INFO - Ӧ�ó�������
+2025-03-23 20:49:10,032 - __main__ - INFO - Python�汾: 3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:17:27) [MSC v.1929 64 bit (AMD64)]
+2025-03-23 20:49:10,032 - __main__ - INFO - ����Ŀ¼: C:\Dev\markitdown\batch_converter
+2025-03-23 20:49:10,032 - __main__ - INFO - �ϴ�Ŀ¼: C:\Dev\markitdown\batch_converter\uploads
+2025-03-23 20:49:10,032 - __main__ - INFO - ����Ŀ¼: C:\Dev\markitdown\batch_converter\downloads
+2025-03-23 20:49:10,034 - __main__ - WARNING - ���ffmpegʱ����: [WinError 2] ϵͳ�Ҳ���ָ�����ļ���
+2025-03-23 20:51:26,127 - __main__ - INFO - 应用程序启动
+2025-03-23 20:51:26,148 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.99.127:5000
+2025-03-23 20:51:26,149 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-23 20:51:26,158 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-23 20:51:28,505 - __main__ - INFO - 应用程序启动
+2025-03-23 20:51:28,511 - werkzeug - WARNING -  * Debugger is active!
+2025-03-23 20:51:28,517 - werkzeug - INFO -  * Debugger PIN: 282-163-871
+2025-03-23 20:51:34,499 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:51:34] "GET / HTTP/1.1" 200 -
+2025-03-23 20:51:34,540 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:51:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-23 20:52:07,608 - __main__ - INFO - API 开始转换 9 个文件，导出类型: directory
+2025-03-23 20:52:08,255 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:52:09,150 - __main__ - ERROR - API 转换文件失败: docx - File conversion failed after 1 attempts:
+ - DocxConverter threw AttributeError with message: 'NoneType' object has no attribute 'children'
+
+2025-03-23 20:52:09,951 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:52:10,301 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:52:12,947 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:52:13,311 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:52:13,943 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:52:14,334 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:52:15,255 - __main__ - INFO - API 成功转换文件: docx
+2025-03-23 20:52:15,257 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:52:15] "POST /api/convert HTTP/1.1" 200 -
+2025-03-23 20:54:42,226 - werkzeug - INFO -  * Detected change in 'C:\\Dev\\markitdown\\batch_converter\\app.py', reloading
+2025-03-23 20:54:42,226 - werkzeug - INFO -  * Detected change in 'C:\\Dev\\markitdown\\batch_converter\\app.py', reloading
+2025-03-23 20:54:42,233 - werkzeug - INFO -  * Detected change in 'C:\\Dev\\markitdown\\batch_converter\\app.py', reloading
+2025-03-23 20:54:42,731 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-23 20:54:45,233 - __main__ - INFO - 应用程序启动
+2025-03-23 20:54:45,240 - werkzeug - WARNING -  * Debugger is active!
+2025-03-23 20:54:45,245 - werkzeug - INFO -  * Debugger PIN: 282-163-871
+2025-03-23 20:54:48,989 - werkzeug - INFO -  * Detected change in 'C:\\Dev\\markitdown\\batch_converter\\app.py', reloading
+2025-03-23 20:54:48,990 - werkzeug - INFO -  * Detected change in 'C:\\Dev\\markitdown\\batch_converter\\app.py', reloading
+2025-03-23 20:54:49,435 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-23 20:54:51,913 - __main__ - INFO - 应用程序启动
+2025-03-23 20:54:51,919 - werkzeug - WARNING -  * Debugger is active!
+2025-03-23 20:54:51,925 - werkzeug - INFO -  * Debugger PIN: 282-163-871
+2025-03-23 20:55:49,214 - werkzeug - INFO -  * Detected change in 'C:\\Dev\\markitdown\\batch_converter\\test_filename.py', reloading
+2025-03-23 20:55:49,225 - werkzeug - INFO -  * Detected change in 'C:\\Dev\\markitdown\\batch_converter\\test_filename.py', reloading
+2025-03-23 20:55:50,252 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-23 20:55:52,710 - __main__ - INFO - 应用程序启动
+2025-03-23 20:55:52,715 - werkzeug - WARNING -  * Debugger is active!
+2025-03-23 20:55:52,722 - werkzeug - INFO -  * Debugger PIN: 282-163-871
+2025-03-23 20:56:44,304 - __main__ - INFO - 应用程序启动
+2025-03-23 20:56:44,325 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.99.127:5000
+2025-03-23 20:56:44,325 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-23 20:56:44,333 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-23 20:56:46,736 - __main__ - INFO - 应用程序启动
+2025-03-23 20:56:46,743 - werkzeug - WARNING -  * Debugger is active!
+2025-03-23 20:56:46,749 - werkzeug - INFO -  * Debugger PIN: 282-163-871
+2025-03-23 20:57:05,319 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:57:05] "GET / HTTP/1.1" 200 -
+2025-03-23 20:57:05,358 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:57:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-23 20:57:41,647 - __main__ - INFO - API 开始转换 9 个文件，导出类型: directory
+2025-03-23 20:57:41,712 - __main__ - INFO - API 处理文件: 原始文件名 = 能源法和可再生能源法.docx, 处理后文件名 = 能源法和可再生能源法.docx
+2025-03-23 20:57:42,736 - __main__ - INFO - API 成功转换文件: 能源法和可再生能源法.docx -> 能源法和可再生能源法.md
+2025-03-23 20:57:42,736 - __main__ - INFO - API 处理文件: 原始文件名 = 碳排放和碳足迹.docx, 处理后文件名 = 碳排放和碳足迹.docx
+2025-03-23 20:57:43,660 - __main__ - ERROR - API 转换文件失败: 碳排放和碳足迹.docx - File conversion failed after 1 attempts:
+ - DocxConverter threw AttributeError with message: 'NoneType' object has no attribute 'children'
+
+2025-03-23 20:57:43,660 - __main__ - INFO - API 处理文件: 原始文件名 = 绿色低碳转型和绿色消费.docx, 处理后文件名 = 绿色低碳转型和绿色消费.docx
+2025-03-23 20:57:44,495 - __main__ - INFO - API 成功转换文件: 绿色低碳转型和绿色消费.docx -> 绿色低碳转型和绿色消费.md
+2025-03-23 20:57:44,496 - __main__ - INFO - API 处理文件: 原始文件名 = 可再生能源补贴政策.docx, 处理后文件名 = 可再生能源补贴政策.docx
+2025-03-23 20:57:44,835 - __main__ - INFO - API 成功转换文件: 可再生能源补贴政策.docx -> 可再生能源补贴政策.md
+2025-03-23 20:57:44,836 - __main__ - INFO - API 处理文件: 原始文件名 = 可再生能源消纳保障机制.docx, 处理后文件名 = 可再生能源消纳保障机制.docx
+2025-03-23 20:57:47,580 - __main__ - INFO - API 成功转换文件: 可再生能源消纳保障机制.docx -> 可再生能源消纳保障机制.md
+2025-03-23 20:57:47,580 - __main__ - INFO - API 处理文件: 原始文件名 = 节能减排和能耗双控.docx, 处理后文件名 = 节能减排和能耗双控.docx
+2025-03-23 20:57:47,958 - __main__ - INFO - API 成功转换文件: 节能减排和能耗双控.docx -> 节能减排和能耗双控.md
+2025-03-23 20:57:47,959 - __main__ - INFO - API 处理文件: 原始文件名 = 绿证全覆盖.docx, 处理后文件名 = 绿证全覆盖.docx
+2025-03-23 20:57:48,606 - __main__ - INFO - API 成功转换文件: 绿证全覆盖.docx -> 绿证全覆盖.md
+2025-03-23 20:57:48,606 - __main__ - INFO - API 处理文件: 原始文件名 = 绿电绿证市场建设.docx, 处理后文件名 = 绿电绿证市场建设.docx
+2025-03-23 20:57:49,023 - __main__ - INFO - API 成功转换文件: 绿电绿证市场建设.docx -> 绿电绿证市场建设.md
+2025-03-23 20:57:49,023 - __main__ - INFO - API 处理文件: 原始文件名 = 能源战略和发展规划.docx, 处理后文件名 = 能源战略和发展规划.docx
+2025-03-23 20:57:49,978 - __main__ - INFO - API 成功转换文件: 能源战略和发展规划.docx -> 能源战略和发展规划.md
+2025-03-23 20:57:49,982 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 20:57:49] "POST /api/convert HTTP/1.1" 200 -
